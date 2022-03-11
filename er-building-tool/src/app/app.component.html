@@ -1,1 +1,24 @@
-<h2>CIAO MONDO</h2>
+<form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div style="margin-top: 400px;">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Peso armi</mat-label>
+      <input
+        type="number"
+        matInput
+        formControlName="pesoArmi"
+      />
+      <mat-error *ngIf="form.controls['pesoArmi'].errors"> Email is <strong>required</strong> </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Peso trasportabile</mat-label>
+      <input
+        type="number"
+        matInput
+        formControlName="pesoTrasportabile"
+      />
+      <mat-error *ngIf="form.controls['pesoTrasportabile'].errors"> peso trasportabile is <strong>required</strong> </mat-error>
+    </mat-form-field>
+  </div>
+  <button mat-button type="submit">Invia</button>
+</form>
