@@ -8,14 +8,20 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
+import { GearTableComponent } from './gear-table/gear-table.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GearTableComponent
   ],
   imports: [
+    MatTableModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -23,7 +29,9 @@ import { CommonModule } from '@angular/common';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule,
+    MatSlideToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

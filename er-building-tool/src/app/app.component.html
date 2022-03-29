@@ -1,24 +1,37 @@
-<form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div style="margin-top: 400px;">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Peso armi</mat-label>
-      <input
-        type="number"
-        matInput
-        formControlName="pesoArmi"
-      />
-      <mat-error *ngIf="form.controls['pesoArmi'].errors"> Email is <strong>required</strong> </mat-error>
-    </mat-form-field>
+<div class="super-container" [ngClass]="{'dark-theme':darkThemeCheck}">
+  <mat-slide-toggle class="slider" (change)="slidato($event)" [checked]="darkThemeCheck">Slide me!</mat-slide-toggle>
+  <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Peso armi</mat-label>
+        <input type="number" matInput formControlName="pesoArmi"/>
+        <mat-error *ngIf="form.controls['pesoArmi'].errors">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Peso trasportabile</mat-label>
+        <input type="number" matInput formControlName="pesoTrasportabile"/>
+        <mat-error *ngIf="form.controls['pesoTrasportabile'].errors">
+          peso trasportabile is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    <button mat-button type="submit">Invia</button>
+    </div>
+  </form>
 
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Peso trasportabile</mat-label>
-      <input
-        type="number"
-        matInput
-        formControlName="pesoTrasportabile"
-      />
-      <mat-error *ngIf="form.controls['pesoTrasportabile'].errors"> peso trasportabile is <strong>required</strong> </mat-error>
-    </mat-form-field>
+  <div class="tabelle">
+    <div>
+      <h3>Fast Roll</h3>
+      <app-gear-table [dataSource]="dataSourceFast"></app-gear-table>
+    </div>
+    <div>
+      <h3>Mid Roll</h3>
+      <app-gear-table [dataSource]="dataSourceMid"></app-gear-table>
+    </div>
+    <div>
+      <h3>Fat Roll</h3>
+      <app-gear-table [dataSource]="dataSourceFat"></app-gear-table>
+    </div>
   </div>
-  <button mat-button type="submit">Invia</button>
-</form>
+</div>

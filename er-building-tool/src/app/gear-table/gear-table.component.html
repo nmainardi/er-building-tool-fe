@@ -1,0 +1,32 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="elmo">
+      <th mat-header-cell *matHeaderCellDef> Elmo </th>
+      <td mat-cell *matCellDef="let element"> {{element.elmetto.name}} <img *ngIf="element.elmetto.file" [src]="'https://eldenring.wiki.fextralife.com/' + element.elmetto.file"> </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="corpetto">
+      <th mat-header-cell *matHeaderCellDef> Corpetto </th>
+      <td mat-cell *matCellDef="let element"> {{element.corpetto.name}} <img *ngIf="element.corpetto.file" [src]="'https://eldenring.wiki.fextralife.com/' + element.corpetto.file"> </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="guanti">
+      <th mat-header-cell *matHeaderCellDef> Guanti </th>
+      <td mat-cell *matCellDef="let element"> {{element.guanti.name}} <img *ngIf="element.guanti.file" [src]="'https://eldenring.wiki.fextralife.com/' + element.guanti.file"> </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="pantaloni">
+      <th mat-header-cell *matHeaderCellDef> Pantaloni </th>
+      <td mat-cell *matCellDef="let element"> {{element.pantaloni.name}} <img *ngIf="element.pantaloni.file" [src]="'https://eldenring.wiki.fextralife.com/' + element.pantaloni.file"> </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
